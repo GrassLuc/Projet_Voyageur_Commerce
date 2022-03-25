@@ -201,3 +201,4 @@ test.play()
 
 
 test.afficherplateau()
+test.gameover()
