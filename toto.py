@@ -198,3 +198,6 @@ class Morpion:
 
 test = Morpion(1)
 test.play()
+
+
+test.afficherplateau()
