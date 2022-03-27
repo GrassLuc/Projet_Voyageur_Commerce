@@ -200,4 +200,4 @@ test = Morpion(1)
 test.play()
 
 
-test.afficherplateau()
+#test.afficherplateau()
