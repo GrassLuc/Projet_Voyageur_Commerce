@@ -31,4 +31,4 @@ Une solution approchée consiste à faire une heuristique calculant d’abord un
 -linfitxy
   -python -m pip install python-usbtmc tpp7
 - Python Graph Libraries(i dont know which one is better so i install python-igraph, NetworkX, EasyGraph from : https://wiki.python.org/moin/PythonGraphLibraries. i prefer NetworkX)
-  -python -m pip install python-igraph NetworkX Python-EasyGraph
+  - python -m pip install python-igraph NetworkX Python-EasyGraph
