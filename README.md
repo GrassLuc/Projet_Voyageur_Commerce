@@ -13,22 +13,22 @@ Une solution approchée consiste à faire une heuristique calculant d’abord un
 #### Python
 - En raison d'on a déjà eu l'environnement de Anaconda pour JupyterLab, on n'a pas besoin de reinstaller Python. Sinon on peut installer sur : https://www.python.org/ . Et sur Mac on doit installer python par Homebrew et utilisez - brew install python3
 - Après on doit vérifier dans cmd si on a bien installé Python et pip par command:
-  -python (si il affiche la version de python ctd bien installé, sinon resseyez python3 ou reinstallez )
-  -^Z (Sortie de mode python)
-  -pip (pip est une source important, on a besoin après et normalement il installe avec python automatiquement)
-  -python -m pip install python-language-server[all](pour installer un chose necessaire)
+  - python (si il affiche la version de python ctd bien installé, sinon resseyez python3 ou reinstallez )
+  - ^Z (Sortie de mode python)
+  - pip (pip est une source important, on a besoin après et normalement il installe avec python automatiquement)
+  - python -m pip install python-language-server[all](pour installer un chose necessaire)
 #### Packages
 - Dans Atom on doit installer certains Packages.
-  -language-python(normalment deja existe)
-  -teletype(Pour modifer à même temps)
-  -atom-ide-ui
-  -ide-python
-  -atom-python-run(pour fonctionner le code par F5, sur mac il faut change vers python3 dans setting de package)
+  - language-python(normalment deja existe)
+  - teletype(Pour modifer à même temps)
+  - atom-ide-ui
+  - ide-python
+  - atom-python-run(pour fonctionner le code par F5, sur mac il faut change vers python3 dans setting de package)
 #### Bibliothèque
 - Sous cmd et il faut utiliser pip
 - Numpy; Scipy; Matplotlib
-  -python -m pip install numpy scipy matplotlib
+  - python -m pip install numpy scipy matplotlib
 -linfitxy
-  -python -m pip install python-usbtmc tpp7
+  - python -m pip install python-usbtmc tpp7
 - Python Graph Libraries(i dont know which one is better so i install python-igraph, NetworkX, EasyGraph from : https://wiki.python.org/moin/PythonGraphLibraries. i prefer NetworkX)
   - python -m pip install python-igraph NetworkX Python-EasyGraph
