@@ -9,7 +9,9 @@ import itertools #pour les permutations
 import dessiner
 
 # Pour creer n villes dans une figure n*n
-
+# dessiner.creerPlan(n)
+# Pour dessiner une Graph avec poids
+# dessiner.villeTousChemin(n)
 
 
 

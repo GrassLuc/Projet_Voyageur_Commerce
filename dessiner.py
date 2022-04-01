@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
+import numpy as np
 
 def creerPlan(n):
     plateau = []
@@ -19,24 +20,16 @@ def creerPlan(n):
         if plateau[-b-1][a] == 0:
             plateau[-b-1][a] = i+1
             i+=1
-            x.append(a)
-            y.append(b)
+            x.append(a+1)
+            y.append(b+1)
         #print (i)
         #print(plateau)
     #plt.plot(x,y,"o")
-    fig = plt.figure()
-    ax1 = fig.add_subplot(111)
-    ax1.set_title('Scatter Plot')
-    plt.xlabel('X')
-    plt.ylabel('Y')
 
-    ax1.scatter(x,y,s=10,c='r',marker='o')
-    plt.legend('villes')
-    plt.show()
     print(*plateau, sep="\n")
-    return plateau
+    return plateau,x,y
 
-def villeTousChemin(n,s):
+def villeTousChemin(n):
     plateau,x,y=creerPlan(n)
     c = calculerCout(x,y)
     G = nx.Graph()
@@ -48,9 +41,17 @@ def villeTousChemin(n,s):
             nx.add_path(G, [i, j],weight=c[k])
             k+=1
     #print(k)
-    #G.add_edges_from([(i,j,{'weight': 8}) for i in range(1,n+1) for j in range(i+1,n+1) for k in range(((n**2-n)/2)-1)])
-    nx.draw_shell(G, nlist=[range(1, n+1), range(s)], with_labels=True, font_weight='bold')
+    plt.subplot(122)
+    nx.draw_shell(G, nlist=[range(1, n+1), range(n//2)], with_labels=True, font_weight='bold')
     #nx.draw(G, with_labels=True, font_weight='bold')
+    fig = plt.figure()
+    ax1 = fig.add_subplot(111)
+    ax1.set_title('les positions des villes')
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    ax1.scatter(x,y,s=10,c='r',marker='o')
+    plt.legend('villes')
+    plt.show()
     return G
 
 def calculerCout(x,y):
@@ -61,4 +62,4 @@ def calculerCout(x,y):
     return c
 
 
-creerPlan(10)
+G=villeTousChemin(10)
