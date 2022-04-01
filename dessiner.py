@@ -37,13 +37,28 @@ def creerPlan(n):
     return plateau
 
 def villeTousChemin(n,s):
+    plateau,x,y=creerPlan(n)
+    c = calculerCout(x,y)
     G = nx.Graph()
+    k = 0
     #G.add_node(1)
     G.add_nodes_from([i for i in range(1,n+1)])
-    G.add_edges_from([(i,j) for i in range(1,n+1) for j in range(1,n+1)])
+    for i in range(1,n):
+        for j in range(i+1,n+1):
+            nx.add_path(G, [i, j],weight=c[k])
+            k+=1
+    #print(k)
+    #G.add_edges_from([(i,j,{'weight': 8}) for i in range(1,n+1) for j in range(i+1,n+1) for k in range(((n**2-n)/2)-1)])
     nx.draw_shell(G, nlist=[range(1, n+1), range(s)], with_labels=True, font_weight='bold')
     #nx.draw(G, with_labels=True, font_weight='bold')
     return G
+
+def calculerCout(x,y):
+    c=[]
+    for i in range(len(x)):
+        for j in range(i+1,len(x)):
+            c.append(np.sqrt((y[j]-y[i])**2+(x[j]-x[i])**2))
+    return c
 
 
 creerPlan(10)
