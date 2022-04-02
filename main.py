@@ -8,11 +8,14 @@ import time #Pour calculer le temps
 import itertools #pour les permutations
 import dessiner
 
-# Pour creer n villes dans une figure n*n
-# dessiner.creerPlan(n)
-# Pour dessiner une Graph avec poids
-# dessiner.villeTousChemin(n)
 
+'''
+G = dessiner.Graph(10) pour creer une figure n*n
+G.calculerCout() pour calculer les distances entre les villes
+G.graphNx() creer une topologique avec poids de path
+G.afficherEuclidien()
+G.afficherTopologique()
+'''
 
 
 
