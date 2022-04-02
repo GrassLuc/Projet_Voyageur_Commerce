@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import random
 import copy
 import pdb
-import networkx as nx #pour
+import networkx as nx #pour la figure topoligique
 import time #Pour calculer le temps
 import itertools #pour les permutations
 import dessiner
@@ -15,37 +15,65 @@ G.calculerCout() pour calculer les distances entre les villes
 G.graphNx() creer une topologique avec poids de path
 G.afficherEuclidien()
 G.afficherTopologique()
+dict(nx.all_pairs_dijkstra(G)) G 中每一个点到另一个点的开销
 '''
 
 
 
 #bruteforce
-def distance_p1p2(p1,p2):
-    d= sqrt((p2[0]-p1[0])**2 - (p2[1]-p1[2])**2
-    return d
+'''G = dessiner.Graph(10)
+G.calculerCout()
+G.graphNx()
 
-def gen_positions_villes(n,L): #n nombre de ville et L taille du "pays" [0,L]*[0,L]
-    T=[]
-    for i in range(n):
-        T.append((random.randint(0,L),random.randint(0,L))
-    return T
+start = time.time()
 
+G.allPath()
+G.minLongueur()
 
-def bruteforce(T):
-    print(T)
-    for i in range(n):
+end = time.time()
 
+print(str(end - start))'''
 
-    print('Hello World')
+#time of bruteforce
+def tempsBruteforce(n):
+    G = dessiner.Graph(n)
+    G.calculerCout()
+    G.graphNx()
 
+    start = time.time()
 
+    G.allPath()
+    G.minLongueur()
 
+    end = time.time()
 
-start = time.clock()
+    return float(end-start)
 
-# la fonction()
+#print(tempsBruteforce(9))
 
-end = time.clock()
+def relationNombreEtTemps(n):
+    x = []
+    y = []
+    k = 0
+    for i in range(2,n+1):
+        x.append(i)
+        for _ in range(5):
+            k += tempsBruteforce(i)
+        y.append(k/5)
+    plt.figure()
+    plt.plot(x,y,markersize=2,label='temps')
+    plt.xlabel('nombre de point')
+    plt.ylabel('temps')
+    plt.title('Fonction de temps en nombre de point')
+    plt.legend()
 
+    plt.figure()
+    plt.plot(x,y,markersize=2,label='temps')
+    plt.yscale("log")
+    plt.xlabel('nombre de point')
+    plt.ylabel('temps')
+    plt.title('Fonction de temps en nombre de point')
+    plt.legend()
+    plt.show()
 
-print(str(end - start))
+relationNombreEtTemps(11)
