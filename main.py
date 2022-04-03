@@ -59,6 +59,7 @@ def relationNombreEtTemps(n):
         x.append(i)
         for _ in range(5):
             k += tempsBruteforce(i)
+        print(i,k/5)
         y.append(k/5)
     plt.figure()
     plt.plot(x,y,markersize=2,label='temps')
