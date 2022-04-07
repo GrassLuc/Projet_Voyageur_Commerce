@@ -43,7 +43,7 @@ def tempsBruteforce(n):
     start = time.time()
 
     G.allPath()
-    G.minLongueur()
+    G.minLongueurBruteForce()
 
     end = time.time()
 
@@ -59,7 +59,6 @@ def relationNombreEtTemps(n):
         x.append(i)
         for _ in range(5):
             k += tempsBruteforce(i)
-        print(i,k/5)
         y.append(k/5)
     plt.figure()
     plt.plot(x,y,markersize=2,label='temps')
@@ -77,4 +76,7 @@ def relationNombreEtTemps(n):
     plt.legend()
     plt.show()
 
-relationNombreEtTemps(11)
+relationNombreEtTemps(9)
+
+def relationNombreEtTempsSA(n):
+    pass

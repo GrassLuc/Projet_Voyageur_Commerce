@@ -32,7 +32,14 @@ class Graph:
                 self.c.append(np.sqrt((self.y[j]-self.y[i])**2+(self.x[j]-self.x[i])**2))
         return self.c
 
-
+    def longueur(self):
+        x0,y0 = self.x[-1], self.y[-1]
+        d = 0
+        for o in range(len(x)):
+            x1,y1 = x[o], y[o]
+            d += (x0-x1)**2 + (y0-y1)**2
+            x0,y0 = x1,y1
+        return d
 
     def graphNx(self):# creer une figure topologique avec poids de path
         self.G = nx.Graph()
@@ -50,9 +57,9 @@ class Graph:
         ax1.set_title('les positions des villes')
         plt.xlabel('X')
         plt.ylabel('Y')
-        ax1.scatter(self.x,self.y,s=self.n*10,c='r',marker='o',label='villes')
+        ax1.scatter(self.x,self.y,s=self.n*10,c='r',marker='o')
         plt.plot(self.x+[self.x[0]],self.y+[self.y[0]],'-',label='path')
-        plt.legend()
+        plt.legend('villes')
         plt.show()
 
     def afficherTopologique(self):
@@ -71,7 +78,7 @@ class Graph:
         #print(self.allpath)
         return self.allpath
 
-    def longueurSomme(self,path):
+    def longueur(self,path):
         d = 0
         for i in range(len(path)-1):
             d += nx.path_weight(self.G,[path[i],path[i+1]],'weight')
@@ -79,18 +86,12 @@ class Graph:
         #print(d)
         return d
 
-    def minLongueurBruteForce(self):
-        d = self.longueurSomme(self.allpath[0])
-        t = self.allpath[0]
+    def minLongueur(self):
+        self.d = self.longueur(self.allpath[0])
+        self.t = self.allpath[0]
         for i in range(len(self.allpath)):
-            if d>self.longueurSomme(self.allpath[i]):
-                d = self.longueurSomme(self.allpath[i])
-                t = self.allpath[i]
-        print(d,t)
+            if self.d>self.longueur(self.allpath[i]):
+                self.d = self.longueur(self.allpath[i])
+                self.t = self.allpath[i]
+        print(self.d,self.t)
         return
-
-    def longueurSvT(self,s,t):
-        return nx.dijkstra_path_length(self.G, s,t)
-
-    def minLongueurApprochee(self):
-        pass
