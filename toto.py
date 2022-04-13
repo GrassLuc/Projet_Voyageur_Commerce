@@ -13,3 +13,8 @@ G.calculerCout()
 G.graphNx()
 G.afficherEuclidien()
 G.afficherTopologique()
+
+G = dessiner.Graph(9)
+G.calculerCout()
+G.graphNx()
+G.minLongueurApprochee()

@@ -80,13 +80,13 @@ class Graph:
         return d
 
     def minLongueurBruteForce(self):
-        d = self.longueurSomme(self.allpath[0])
-        t = self.allpath[0]
+        self.d = self.longueurSomme(self.allpath[0])
+        self.t = self.allpath[0]
         for i in range(len(self.allpath)):
-            if d>self.longueurSomme(self.allpath[i]):
-                d = self.longueurSomme(self.allpath[i])
-                t = self.allpath[i]
-        print(d,t)
+            if self.d>self.longueurSomme(self.allpath[i]):
+                self.d = self.longueurSomme(self.allpath[i])
+                self.t = self.allpath[i]
+        print(self.d,self.t)
         return
 
     def longueurSvT(self,s,t):

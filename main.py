@@ -118,4 +118,18 @@ def relationNombreEtTempsApproche(n):
     plt.legend()
     plt.show()
 
-relationNombreEtTempsApproche(12)
+relationNombreEtTempsApproche(150)
+
+'''dB = []
+dA = []
+for _ in range(5):
+    G = dessiner.Graph(10)
+    G.calculerCout()
+    G.graphNx()
+    G.allPath()
+    G.minLongueurBruteForce()
+    dB.append(G.d)
+    G.minLongueurApprochee()
+    dA.append(G.longueurSomme(G.path))
+print('le temps moyenne de la longueur par brute force:',np.mean(dB))
+print('le temps moyenne de la longueur par approchee:',np.mean(dA))'''
