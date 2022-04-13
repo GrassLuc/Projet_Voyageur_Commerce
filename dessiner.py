@@ -90,7 +90,44 @@ class Graph:
         return
 
     def longueurSvT(self,s,t):
-        return nx.dijkstra_path_length(self.G, s,t)
+        return nx.path_weight(G.G,[s,t],'weight')
+
+    def nodes(self):
+        return list(self.G.nodes)
+
 
     def minLongueurApprochee(self):
-        pass
+        pile = self.nodes()
+        pile.remove(1)
+        self.path = [1]
+
+        while pile!=[]:
+            d = np.sqrt(2*self.n**2+1)
+
+            for i in pile:
+
+                if d > nx.path_weight(self.G,[self.path[-1],i],'weight'):
+                    d = nx.path_weight(self.G,[self.path[-1],i],'weight')
+                    k=i
+            self.path.append(k)
+            pile.remove(k)
+
+        self.path.append(1)
+        print(self.longueurSomme(self.path),self.path)
+        return
+
+    def afficherResultat(self,path):
+        x = []
+        y = []
+        for i in path:
+            x.append(self.x[i-1])
+            y.append(self.y[i-1])
+        plt.figure()
+        plt.title('les positions des villes')
+        plt.xlabel('X')
+        plt.ylabel('Y')
+        plt.scatter(x,y,s=self.n*10,c='r',marker='o',label='villes')
+        plt.plot(x,y,'-',label='path')
+        plt.legend()
+        plt.show()
+        return

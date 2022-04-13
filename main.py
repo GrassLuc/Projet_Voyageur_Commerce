@@ -76,7 +76,46 @@ def relationNombreEtTemps(n):
     plt.legend()
     plt.show()
 
-relationNombreEtTemps(9)
+#time of approchee
+def tempsApproche(n):
+    G = dessiner.Graph(n)
+    G.calculerCout()
+    G.graphNx()
 
-def relationNombreEtTempsSA(n):
-    pass
+    start = time.time()
+
+    G.minLongueurApprochee()
+
+    end = time.time()
+
+    return float(end-start)
+
+#print(tempsBruteforce(9))
+
+def relationNombreEtTempsApproche(n):
+    x = []
+    y = []
+    k = 0
+    for i in range(2,n+1):
+        x.append(i)
+        for _ in range(5):
+            k += tempsApproche(i)
+        print(i,k/5)
+        y.append(k/5)
+    plt.figure()
+    plt.plot(x,y,markersize=2,label='temps')
+    plt.xlabel('nombre de point')
+    plt.ylabel('temps')
+    plt.title('Fonction de temps en nombre de point')
+    plt.legend()
+
+    plt.figure()
+    plt.plot(x,y,markersize=2,label='temps')
+    plt.yscale("log")
+    plt.xlabel('nombre de point')
+    plt.ylabel('temps')
+    plt.title('Fonction de temps en nombre de point')
+    plt.legend()
+    plt.show()
+
+relationNombreEtTempsApproche(12)
