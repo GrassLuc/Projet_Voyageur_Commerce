@@ -71,6 +71,18 @@ class Graph:
         #print(self.allpath)
         return self.allpath
 
+    def allPathPermutation(self):
+        l = list(itertools.permutations(range(2,self.n+1),self.n-1))
+        self.allpathpermutation = []
+        for i in range(len(l)):
+            ln = [1]
+            for j in range(len(l[0])):
+
+                ln.append(l[i][j])
+            ln.append(1)
+            lp.append(ln)
+        return self.allpathpermutation
+
     def longueurSomme(self,path):
         d = 0
         for i in range(len(path)-1):
@@ -86,7 +98,7 @@ class Graph:
             if self.d>self.longueurSomme(self.allpath[i]):
                 self.d = self.longueurSomme(self.allpath[i])
                 self.t = self.allpath[i]
-        print(self.d,self.t)
+        #print(self.d,self.t)
         return
 
     def longueurSvT(self,s,t):
@@ -103,17 +115,14 @@ class Graph:
 
         while pile!=[]:
             d = np.sqrt(2*self.n**2+1)
-
             for i in pile:
-
                 if d > nx.path_weight(self.G,[self.path[-1],i],'weight'):
                     d = nx.path_weight(self.G,[self.path[-1],i],'weight')
                     k=i
             self.path.append(k)
             pile.remove(k)
-
         self.path.append(1)
-        print(self.longueurSomme(self.path),self.path)
+        #print(self.longueurSomme(self.path),self.path)
         return
 
     def afficherResultat(self,path):
