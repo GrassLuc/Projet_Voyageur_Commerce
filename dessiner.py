@@ -139,4 +139,6 @@ class Graph:
         plt.plot(x,y,'-',label='path')
         plt.legend()
         plt.show()
+        print(self.longueurSomme(path))
+        print(len(path)-1)
         return
