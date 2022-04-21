@@ -15,7 +15,7 @@ G.calculerCout() pour calculer les distances entre les villes
 G.graphNx() creer une topologique avec poids de path
 G.afficherEuclidien()
 G.afficherTopologique()
-dict(nx.all_pairs_dijkstra(G)) G 中每一个点到另一个点的开销
+dict(nx.all_pairs_dijkstra(G)) G cote entre chaque ville 
 '''
 
 
