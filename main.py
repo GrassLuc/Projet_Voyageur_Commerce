@@ -15,7 +15,7 @@ G.calculerCout() pour calculer les distances entre les villes
 G.graphNx() creer une topologique avec poids de path
 G.afficherEuclidien()
 G.afficherTopologique()
-dict(nx.all_pairs_dijkstra(G)) G cote entre chaque ville 
+dict(nx.all_pairs_dijkstra(G)) G cote entre chaque ville
 '''
 
 
@@ -65,9 +65,12 @@ def relationNombreEtTemps(n):
     plt.legend()
     plt.show()
 
+
 '''relationNombreEtTemps(12)'''
 
 #time of approchee
+
+
 def tempsApproche(n):
     G = dessiner.Graph(n)
     G.calculerCout()
@@ -111,6 +114,7 @@ def relationNombreEtTempsApproche(n):
     plt.title('Fonction de temps en nombre de point')
     plt.legend()
     plt.show()
+
 
 '''relationNombreEtTempsApproche(1000)'''
 
@@ -175,18 +179,18 @@ with tqdm(total=10) as bar:
         dA.append(G.longueurSomme(G.path))
         bar.update(1)
 print('ici on vérifie le résultat sur approchee en cas n=200 et s=n**2')
-x = np.arange(1,len(dA)+1)
+x = np.arange(1, len(dA)+1)
 plt.figure()
 plt.title('L\'efficacité de la méthode approchee en 200 villes')
 plt.xlabel('fois')
 plt.ylabel('longueur')
-plt.scatter(x,dA,s=10,c='r',marker='o',label='longueur')
-plt.plot(x,dA,'-')
+plt.scatter(x, dA, s=10, c='r', marker='o', label='longueur')
+#plt.plot(x, dA, '-')
 plt.legend()
 plt.show()'''
 
 #10 fois pour vérifier sur BF et approchee n=9
-dB = []
+'''dB = []
 dA = []
 with tqdm(total=10) as bar:
     for _ in range(10):
@@ -200,14 +204,14 @@ with tqdm(total=10) as bar:
         dA.append(G.longueurSomme(G.path))
         bar.update(1)
 print('ici on vérifie le résultat sur bruteforce et approchee en cas n=9 et s=n**2')
-x = np.arange(1,len(dA)+1)
+x = np.arange(1, len(dA)+1)
 plt.figure()
 plt.title('L\'efficacité de la méthode BF et approchee en 9 villes')
 plt.xlabel('fois')
 plt.ylabel('longueur')
-plt.scatter(x,dA,s=10,c='r',marker='o',label='longueur MA')
-plt.scatter(x,dB,s=10,c='g',marker='o',label='longueur MBF')
-plt.plot(x,dA,'-')
-plt.plot(x,dB,'-')
+plt.scatter(x, dA, s=10, c='r', marker='o', label='longueur MA')
+plt.scatter(x, dB, s=10, c='g', marker='o', label='longueur MBF')
+#plt.plot(x,dA,'-')
+#plt.plot(x,dB,'-')
 plt.legend()
-plt.show()
+plt.show()'''
